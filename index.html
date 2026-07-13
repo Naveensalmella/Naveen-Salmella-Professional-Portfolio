@@ -5,15 +5,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Naveen Salmella — Full Stack Developer</title>
+    <meta name="description"
+        content="Portfolio of Naveen Salmella — Full Stack Developer, Python & AI enthusiast building clean, responsive web applications.">
+    <meta name="author" content="Naveen Salmella">
+    <meta name="keywords"
+        content="Naveen Salmella, Full Stack Developer, React Developer, Python Developer, Web Developer, Portfolio, Hyderabad">
+    <meta name="theme-color" content="#060b18">
+    <!-- Open Graph / Social sharing -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Naveen Salmella — Full Stack Developer">
+    <meta property="og:description"
+        content="Full Stack Developer & AI enthusiast building clean, responsive web applications with React, Python, Django and FastAPI.">
+    <meta property="og:url" content="https://naveen-salmella-portfolio.vercel.app">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Naveen Salmella — Full Stack Developer">
+    <meta name="twitter:description"
+        content="Full Stack Developer & AI enthusiast building clean, responsive web applications.">
+    <!-- Favicon (inline SVG monogram) -->
+    <link rel="icon"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23060b18'/%3E%3Ctext x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial,sans-serif' font-size='34' font-weight='bold' fill='%2300d4ff'%3EN%3C/text%3E%3C/svg%3E">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <link rel="stylesheet" href="style.css"/>
+    <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
+
+    <!-- Scroll progress -->
+    <div class="scroll-progress" id="progress"></div>
+
+    <!-- Cursor glow -->
+    <div class="cursor-glow" id="cursorGlow"></div>
 
     <!-- BG Effects -->
     <div class="bg-grid"></div>
@@ -23,9 +48,9 @@
     <!-- Nav -->
     <nav class="nav" id="nav">
         <div class="nav-inner">
-            <a href="#" class="nav-logo"><span>N</span>aveen.</a>
+            <a href="#home" class="nav-logo"><span>N</span>aveen.</a>
             <ul class="nav-links" id="navLinks">
-                <li><a href="#home">Home</a></li>
+                <li><a href="#home" class="active">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#education">Education</a></li>
                 <li><a href="#skills">Skills</a></li>
@@ -33,9 +58,13 @@
                 <li><a href="#certifications">Certificates</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-            <button class="hamburger" id="hamburger" aria-label="Menu">
-                <span></span><span></span><span></span>
-            </button>
+            <div class="nav-right">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme"><i
+                        class="fas fa-moon"></i></button>
+                <button class="hamburger" id="hamburger" aria-label="Menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
         </div>
     </nav>
 
@@ -47,9 +76,9 @@
                     <span class="hero-eyebrow">Hello, I'm</span>
                     <h1 class="hero-name">Naveen Salmella</h1>
                     <p class="hero-role"><span id="typing-text"></span></p>
-                    <p class="hero-desc">Passionate developer focused on building clean, responsive, and user-friendly
-                        web applications. I enjoy solving real-world problems through code while continuously learning
-                        and improving my skills.</p>
+                    <p class="hero-desc">Passionate full-stack developer focused on building clean, responsive, and
+                        user-friendly web applications. I enjoy solving real-world problems through code while
+                        continuously learning and improving my skills.</p>
                     <div class="hero-actions">
                         <a href="https://drive.google.com/file/d/1P6iMMJ3aUARh-uefu1vkJEi-E0TwJatD/view?usp=drivesdk"
                             target="_blank" class="btn btn-primary"><i class="fas fa-download"></i> Resume</a>
@@ -69,11 +98,15 @@
                 </div>
                 <div class="hero-photo-wrap">
                     <div class="hero-photo">
-                        <img src="images/WhatsApp Image 2026-06-20 at 15.59.34.jpeg" alt="Naveen Salmella">
+                        <div class="hero-photo-fallback">NS</div>
+                        <img src="images/naveen.jpg" alt="Naveen Salmella" onerror="this.style.display='none'">
+                        <span class="hero-badge one"><i class="fas fa-code"></i> Full Stack</span>
+                        <span class="hero-badge two"><span class="live-dot"></span> Open to work</span>
                     </div>
                 </div>
             </div>
         </div>
+        <a href="#about" class="scroll-cue" aria-label="Scroll down"><i class="fas fa-chevron-down"></i></a>
     </section>
 
     <!-- About -->
@@ -98,19 +131,19 @@
         <div class="container">
             <div class="stats-grid">
                 <div class="stat-item reveal">
-                    <div class="stat-num">10+</div>
+                    <div class="stat-num" data-target="10" data-suffix="+">0</div>
                     <div class="stat-label">Projects Completed</div>
                 </div>
                 <div class="stat-item reveal">
-                    <div class="stat-num">10+</div>
+                    <div class="stat-num" data-target="10" data-suffix="+">0</div>
                     <div class="stat-label">Certificates Earned</div>
                 </div>
                 <div class="stat-item reveal">
-                    <div class="stat-num">3</div>
+                    <div class="stat-num" data-target="3" data-suffix="">0</div>
                     <div class="stat-label">Programming Languages</div>
                 </div>
                 <div class="stat-item reveal">
-                    <div class="stat-num">100%</div>
+                    <div class="stat-num" data-target="100" data-suffix="%">0</div>
                     <div class="stat-label">Passion &amp; Dedication</div>
                 </div>
             </div>
@@ -205,6 +238,31 @@
         </div>
     </section>
 
+    <!-- Experience -->
+    <section id="experience">
+        <div class="container">
+            <div class="sec-header reveal">
+                <p class="sec-label">Career</p>
+                <h2 class="sec-title">Experience</h2>
+                <div class="sec-line"></div>
+            </div>
+            <div class="timeline">
+                <!-- TODO: update the internship dates below to your actual start/end months -->
+                <div class="tl-item reveal">
+                    <div class="tl-dot"></div>
+                    <div class="tl-card">
+                        <div class="tl-date">Internship</div>
+                        <h3>Python Development Intern</h3>
+                        <h4>Cognifyz Technologies</h4>
+                        <p>Completed a hands-on Python development internship — building practical mini-projects,
+                            practising core Python and problem-solving, and strengthening software development
+                            fundamentals through real tasks and assignments.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Skills -->
     <section id="skills">
         <div class="container">
@@ -257,23 +315,23 @@
                         </div>
                     </div>
                     <div class="skill-row">
-                        <div class="skill-top"><span><i class="fab fa-node-js"
-                                    style="color:var(--accent);margin-right:6px"></i>Node JS</span><span class="pct"
-                                data-target="72">0%</span></div>
+                        <div class="skill-top"><span><i class="fas fa-wind"
+                                    style="color:var(--accent);margin-right:6px"></i>Tailwind CSS</span><span
+                                class="pct" data-target="85">0%</span></div>
                         <div class="skill-track">
-                            <div class="skill-fill" data-width="72%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-row">
-                        <div class="skill-top"><span><i class="fas fa-database"
-                                    style="color:var(--accent);margin-right:6px"></i>MongoDB</span><span class="pct"
-                                data-target="70">0%</span></div>
-                        <div class="skill-track">
-                            <div class="skill-fill" data-width="70%"></div>
+                            <div class="skill-fill" data-width="85%"></div>
                         </div>
                     </div>
                     <div class="skill-row">
                         <div class="skill-top"><span><i class="fas fa-server"
+                                    style="color:var(--accent);margin-right:6px"></i>Django &amp; FastAPI</span><span
+                                class="pct" data-target="78">0%</span></div>
+                        <div class="skill-track">
+                            <div class="skill-fill" data-width="78%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-row">
+                        <div class="skill-top"><span><i class="fas fa-database"
                                     style="color:var(--accent);margin-right:6px"></i>MySQL</span><span class="pct"
                                 data-target="82">0%</span></div>
                         <div class="skill-track">
@@ -350,32 +408,138 @@
                 <h2 class="sec-title">Projects</h2>
                 <div class="sec-line"></div>
             </div>
+            <div class="proj-filters reveal">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="react">React</button>
+                <button class="filter-btn" data-filter="python">Python / AI</button>
+            </div>
             <div class="projects-grid">
-                <div class="project-card reveal">
-                    <div class="proj-icon"><i class="fas fa-stethoscope"></i></div>
-                    <h3>Vision-Enabled LLM System for Automated Medical Diagnosis</h3>
-                    <p>Developed a Vision-Enabled Large Language Model integrating Computer Vision and NLP to analyze
-                        medical images and symptoms for automated preliminary diagnosis.</p>
-                    <div class="tags">
-                        <span>Python</span><span>FastAPI</span><span>SQLite</span><span>HTML</span><span>CSS</span><span>Jinja2</span>
+
+                <!-- Latest first -->
+                <div class="project-card reveal" data-cat="react">
+                    <div class="proj-top">
+                        <div class="proj-icon"><i class="fas fa-film"></i></div>
+                        <span class="proj-badge">Latest</span>
+                    </div>
+                    <h3>CineSearch — Movie Search App</h3>
+                    <p>A responsive movie-search web app that lets users search films and view ratings and release
+                        details in real time through a REST movie database API.</p>
+                    <div class="tags"><span>React</span><span>JavaScript</span><span>REST API</span><span>CSS</span>
+                    </div>
+                    <div class="proj-links">
+                        <a href="https://cinesearch-omega.vercel.app" target="_blank" class="proj-btn primary"><i
+                                class="fas fa-arrow-up-right-from-square"></i> Live Demo</a>
+                        <a href="https://github.com/Naveensalmella" target="_blank" class="proj-btn ghost"><i
+                                class="fab fa-github"></i> Code</a>
                     </div>
                 </div>
-                <div class="project-card reveal">
-                    <div class="proj-icon"><i class="fas fa-shield-virus"></i></div>
-                    <h3>Malware Detection Using Deep Learning</h3>
-                    <p>Developed a machine learning-based malware detection system using KNN, SVM, Decision Trees and
-                        Random Forest algorithms for accurate malware classification.</p>
-                    <div class="tags">
-                        <span>Python</span><span>TensorFlow</span><span>Keras</span><span>NumPy</span><span>Pandas</span><span>SQLite</span>
+
+                <div class="project-card reveal" data-cat="react">
+                    <div class="proj-top">
+                        <div class="proj-icon"><i class="fas fa-dumbbell"></i></div>
+                        <span class="proj-badge">Latest</span>
+                    </div>
+                    <h3>IGNITE — Fitness Web App</h3>
+                    <p>A fitness &amp; personal-development web app with a gamified "level up" theme, built as an
+                        installable Progressive Web App (PWA) with a modern dark UI.</p>
+                    <div class="tags"><span>React</span><span>JavaScript</span><span>PWA</span><span>CSS</span></div>
+                    <div class="proj-links">
+                        <a href="https://ignite-reality.vercel.app" target="_blank" class="proj-btn primary"><i
+                                class="fas fa-arrow-up-right-from-square"></i> Live Demo</a>
+                        <a href="https://github.com/Naveensalmella" target="_blank" class="proj-btn ghost"><i
+                                class="fab fa-github"></i> Code</a>
                     </div>
                 </div>
-                <div class="project-card reveal">
-                    <div class="proj-icon"><i class="fas fa-user"></i></div>
+
+                <div class="project-card reveal" data-cat="react">
+                    <div class="proj-top">
+                        <div class="proj-icon"><i class="fas fa-bag-shopping"></i></div>
+                        <span class="proj-badge">Latest</span>
+                    </div>
+                    <h3>Saree Elegance — E-commerce App</h3>
+                    <p>An e-commerce-style web application for browsing and showcasing a curated saree collection, with
+                        product listing and detail views in a responsive layout.</p>
+                    <div class="tags"><span>React</span><span>JavaScript</span><span>CSS</span></div>
+                    <div class="proj-links">
+                        <a href="https://saree-elegance-app.vercel.app" target="_blank" class="proj-btn primary"><i
+                                class="fas fa-arrow-up-right-from-square"></i> Live Demo</a>
+                        <a href="https://github.com/Naveensalmella" target="_blank" class="proj-btn ghost"><i
+                                class="fab fa-github"></i> Code</a>
+                    </div>
+                </div>
+
+                <div class="project-card reveal" data-cat="react">
+                    <div class="proj-top">
+                        <div class="proj-icon"><i class="fas fa-user-astronaut"></i></div>
+                        <span class="proj-badge">Latest</span>
+                    </div>
                     <h3>Personal Portfolio Website</h3>
-                    <p>Designed and developed a responsive portfolio website showcasing skills, education, projects and
-                        achievements using modern web technologies.</p>
-                    <div class="tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+                    <p>A responsive single-page portfolio built with modern web technologies, featuring smooth
+                        navigation, animations and a clean, mobile-first design deployed on Vercel.</p>
+                    <div class="tags"><span>React</span><span>JavaScript</span><span>CSS</span></div>
+                    <div class="proj-links">
+                        <a href="https://naveen-salmella-portfolio.vercel.app" target="_blank"
+                            class="proj-btn primary"><i class="fas fa-arrow-up-right-from-square"></i> Live Demo</a>
+                        <a href="https://github.com/Naveensalmella" target="_blank" class="proj-btn ghost"><i
+                                class="fab fa-github"></i> Code</a>
+                    </div>
                 </div>
+
+                <div class="project-card reveal" data-cat="python">
+                    <div class="proj-top">
+                        <div class="proj-icon"><i class="fas fa-stethoscope"></i></div>
+                    </div>
+                    <h3>Vision-Enabled LLM for Medical Diagnosis</h3>
+                    <p>A Vision-Enabled Large Language Model integrating Computer Vision and NLP to analyze medical
+                        images and symptoms for automated preliminary diagnosis, served via a FastAPI backend.</p>
+                    <div class="tags">
+                        <span>Python</span><span>FastAPI</span><span>SQLite</span><span>Jinja2</span><span>NLP</span>
+                    </div>
+                    <div class="proj-links">
+                        <a href="https://github.com/Naveensalmella" target="_blank" class="proj-btn ghost"><i
+                                class="fab fa-github"></i> Code</a>
+                    </div>
+                </div>
+
+                <div class="project-card reveal" data-cat="python">
+                    <div class="proj-top">
+                        <div class="proj-icon"><i class="fas fa-shield-virus"></i></div>
+                    </div>
+                    <h3>Malware Detection Using Machine Learning</h3>
+                    <p>A machine-learning malware detection system comparing KNN, SVM, Decision Tree and Random Forest
+                        algorithms, with data preprocessing and feature engineering to maximize accuracy.</p>
+                    <div class="tags">
+                        <span>Python</span><span>TensorFlow</span><span>Keras</span><span>NumPy</span><span>Pandas</span>
+                    </div>
+                    <div class="proj-links">
+                        <a href="https://github.com/Naveensalmella" target="_blank" class="proj-btn ghost"><i
+                                class="fab fa-github"></i> Code</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- GitHub Activity -->
+    <section id="github">
+        <div class="container">
+            <div class="sec-header reveal">
+                <p class="sec-label">Open Source</p>
+                <h2 class="sec-title">GitHub Activity</h2>
+                <div class="sec-line"></div>
+            </div>
+            <div class="gh-grid reveal">
+                <img loading="lazy"
+                    src="https://github-readme-stats.vercel.app/api?username=Naveensalmella&show_icons=true&hide_border=true&title_color=00d4ff&icon_color=6366f1&text_color=e2e8f0&bg_color=0d1525"
+                    alt="Naveen's GitHub Stats">
+                <img loading="lazy"
+                    src="https://github-readme-stats.vercel.app/api/top-langs/?username=Naveensalmella&layout=compact&hide_border=true&title_color=00d4ff&text_color=e2e8f0&bg_color=0d1525"
+                    alt="Naveen's Top Languages">
+            </div>
+            <div class="gh-cta reveal">
+                <a href="https://github.com/Naveensalmella" target="_blank" class="btn btn-outline"><i
+                        class="fab fa-github"></i> View GitHub Profile</a>
             </div>
         </div>
     </section>
@@ -391,7 +555,7 @@
             <div class="cert-grid">
                 <div class="cert-card reveal"><i class="fas fa-network-wired"></i>
                     <h3>CCNA</h3>
-                    <p>Introduction to Networks</p>
+                    <p>Introduction to Networks — Cisco</p>
                 </div>
                 <div class="cert-card reveal"><i class="fas fa-chart-line"></i>
                     <h3>TATA</h3>
@@ -400,6 +564,10 @@
                 <div class="cert-card reveal"><i class="fas fa-briefcase"></i>
                     <h3>Wadhwani Foundation</h3>
                     <p>JobReady Employability Skills</p>
+                </div>
+                <div class="cert-card reveal"><i class="fab fa-python"></i>
+                    <h3>Cognifyz</h3>
+                    <p>Python Development Internship</p>
                 </div>
                 <div class="cert-card reveal"><i class="fab fa-aws"></i>
                     <h3>AWS</h3>
@@ -453,7 +621,32 @@
                     <p>Naveensalmella</p>
                 </a>
             </div>
+
+            <form class="contact-form reveal" id="contactForm" autocomplete="on">
+                <div class="cf-row">
+                    <div class="cf-field">
+                        <label for="cf-name">Name</label>
+                        <input id="cf-name" name="name" type="text" placeholder="Your name" required>
+                    </div>
+                    <div class="cf-field">
+                        <label for="cf-email">Email</label>
+                        <input id="cf-email" name="email" type="email" placeholder="you@example.com" required>
+                    </div>
+                </div>
+                <div class="cf-field">
+                    <label for="cf-subject">Subject</label>
+                    <input id="cf-subject" name="subject" type="text" placeholder="What's this about?">
+                </div>
+                <div class="cf-field">
+                    <label for="cf-message">Message</label>
+                    <textarea id="cf-message" name="message" rows="5"
+                        placeholder="Tell me about your project or opportunity..." required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" id="cf-submit"><i class="fas fa-paper-plane"></i> Send
+                    Message</button>
+            </form>
         </div>
+        <div class="toast" id="toast"></div>
     </section>
 
     <!-- Footer -->
@@ -461,7 +654,8 @@
         <div class="footer-name">Naveen Salmella</div>
         <p class="footer-tagline">Full Stack Developer · AI Enthusiast · Computer Science Student</p>
         <div class="footer-social">
-            <a href="https://wa.me/6300774200" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://wa.me/916300774200" target="_blank" aria-label="WhatsApp"><i
+                    class="fab fa-whatsapp"></i></a>
             <a href="https://www.instagram.com/naveen.salmella" target="_blank" aria-label="Instagram"><i
                     class="fab fa-instagram"></i></a>
             <a href="mailto:naveensalmella46@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
@@ -470,6 +664,9 @@
         </div>
         <p class="footer-copy">&copy; 2026 Naveen Salmella. All Rights Reserved.</p>
     </footer>
+
+    <!-- Back to top -->
+    <button class="back-top" id="backTop" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
 
     <script src="script.js"></script>
 </body>
