@@ -167,7 +167,7 @@ filterBtns.forEach(btn => {
 // ── Contact form ──
 // To receive messages straight to your inbox, create a free form at https://formspree.io
 // then replace YOUR_FORM_ID below with your form's ID (e.g. https://formspree.io/f/abcdwxyz).
-const FORMSPREE_ENDPOINT = 'https://formspree.io/f/YOUR_FORM_ID';
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xjgnvoja';
 const contactForm = document.getElementById('contactForm');
 const toast = document.getElementById('toast');
 let toastTimer;
