@@ -1440,6 +1440,95 @@ footer {
     border: 1px solid var(--border)
 }
 
+.gh-card {
+    width: 100%;
+    max-width: 440px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 28px;
+}
+
+.gh-card-title {
+    font-family: var(--mono);
+    font-size: 13px;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.gh-stat-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+    color: var(--text);
+    font-size: 15px;
+}
+
+.gh-stat-row:last-child {
+    border-bottom: none
+}
+
+.gh-stat-row strong {
+    color: var(--accent);
+    font-family: var(--mono);
+    font-size: 16px;
+}
+
+.gh-lang-row {
+    margin-bottom: 14px;
+}
+
+.gh-lang-row:last-child {
+    margin-bottom: 0
+}
+
+.gh-lang-top {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    color: var(--text);
+    margin-bottom: 6px;
+}
+
+.gh-lang-track {
+    height: 6px;
+    background: var(--surface-2);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.gh-lang-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    border-radius: 4px;
+}
+
+.gh-loading,
+.gh-error {
+    color: var(--text-muted);
+    font-size: 14px;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.gh-error a {
+    color: var(--accent);
+    font-weight: 600;
+    text-decoration: none;
+    margin-left: 4px;
+}
+
+.gh-error a:hover {
+    text-decoration: underline;
+}
+
 .gh-cta {
     text-align: center;
     margin-top: 36px

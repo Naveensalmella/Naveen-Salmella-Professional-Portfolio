@@ -216,5 +216,58 @@ if (contactForm) {
     });
 }
 
+// ── GitHub stats (fetched live from GitHub's own API — no third-party image service) ──
+(function () {
+    const GH_USER = 'Naveensalmella';
+    const statList = document.getElementById('ghStatList');
+    const langList = document.getElementById('ghLangList');
+    if (!statList || !langList) return;
+
+    function showError(el, msg) {
+        el.innerHTML = `<div class="gh-error"><i class="fas fa-triangle-exclamation"></i> ${msg}<a href="https://github.com/${GH_USER}" target="_blank">View profile directly →</a></div>`;
+    }
+
+    async function loadGithubStats() {
+        try {
+            const [userRes, reposRes] = await Promise.all([
+                fetch(`https://api.github.com/users/${GH_USER}`),
+                fetch(`https://api.github.com/users/${GH_USER}/repos?per_page=100&type=owner`)
+            ]);
+            if (!userRes.ok || !reposRes.ok) throw new Error('GitHub API error');
+            const user = await userRes.json();
+            const repos = await reposRes.json();
+            if (!Array.isArray(repos)) throw new Error('Unexpected repos response');
+
+            const totalStars = repos.reduce((sum, r) => sum + (r.stargazers_count || 0), 0);
+            const totalForks = repos.reduce((sum, r) => sum + (r.forks_count || 0), 0);
+
+            statList.innerHTML = `
+                <div class="gh-stat-row"><span>Public Repos</span><strong>${user.public_repos ?? repos.length}</strong></div>
+                <div class="gh-stat-row"><span>Followers</span><strong>${user.followers ?? 0}</strong></div>
+                <div class="gh-stat-row"><span>Total Stars</span><strong>${totalStars}</strong></div>
+                <div class="gh-stat-row"><span>Total Forks</span><strong>${totalForks}</strong></div>
+            `;
+
+            const langCount = {};
+            repos.forEach(r => { if (r.language) langCount[r.language] = (langCount[r.language] || 0) + 1; });
+            const sortedLangs = Object.entries(langCount).sort((a, b) => b[1] - a[1]).slice(0, 5);
+            const maxCount = sortedLangs.length ? sortedLangs[0][1] : 1;
+
+            langList.innerHTML = sortedLangs.length
+                ? sortedLangs.map(([lang, count]) => `
+                    <div class="gh-lang-row">
+                        <div class="gh-lang-top"><span>${lang}</span><span>${count} repo${count > 1 ? 's' : ''}</span></div>
+                        <div class="gh-lang-track"><div class="gh-lang-fill" style="width:${(count / maxCount) * 100}%"></div></div>
+                    </div>`).join('')
+                : `<div class="gh-loading">No language data available.</div>`;
+        } catch (err) {
+            showError(statList, 'GitHub stats are temporarily unavailable. ');
+            showError(langList, 'Top languages are temporarily unavailable. ');
+        }
+    }
+
+    loadGithubStats();
+})();
+
 // init
 onScroll();
